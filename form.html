@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+
+            background: linear-gradient(90deg,green,white);
+        }
+        .container{
+            max-width: calc(100wa-30wa);
+            width: 100%;
+            text-align: center;
+            
+        }
+        h2{
+            font-size: 50px;
+            color: green;
+            margin: 20px;
+        }
+        p{
+            font-size: 20px;
+            margin: 20px;
+        }
+        .frm-group input{
+            width: 20rem;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+        }
+        .sub input{
+            margin: 15px;
+            width: 100px;
+            padding: 12px;
+            background-color: green;
+            border-radius: 15%;
+            
+        }
+        span{
+            color: red;
+            font-size: 20px;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h2>Quick Inquiry</h2>
+            <p>Let's get the Conversation started. Fill the form below and we'll get in touch as soon as we can.</p>
+
+            <form name="myForm" action="#" onsubmit="return validateForm()" method="post">
+              <div class="frm-group">
+                   <input type="text" name="fname" id="t1" placeholder="First Name"><br>
+                  <span id="t11"> </span>
+              </div>
+              <div class="frm-group">
+                <input type="text" name="flast" id="t2" placeholder="Last Name"><br>
+                  <span id="t22"> </span>
+              </div>
+              <div class="frm-group">
+                 <input type="text" name="femail" id="t3" placeholder="Your Email ID"><br>
+              <span id="t33"> </span>
+              </div>
+              <div class="frm-group">
+                 <input type="text" name="fcountry" id="t4" placeholder="Country"><br>
+              <span id="t44"> </span>
+              </div>
+              <div class="frm-group">
+                 <input type="text" name="fcode" id="t5" placeholder="Code"><br>
+              <span id="t55"> </span>
+              </div>
+              <div class="frm-group">
+                 <input type="text" name="fnumber" id="t6" placeholder="Phone Number"><br>
+              <span id="t66"> </span>
+              </div>
+              <div class="frm-group">
+                 <input type="text" name="fcompany" id="t7" placeholder="Pasword"><br>
+              <span id="t77"> </span>
+              </div>
+              <div class="sub">
+                <input type="submit" value="Submit">
+            
+              </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function validateForm() {
+          var name= document.getElementById("t1").value;
+            var letters = /^[A-Za-z]/;
+          var last= document.getElementById("t2").value;
+          var email= document.getElementById("t3").value;
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+          var country= document.getElementById("t4").value;
+          var code= document.getElementById("t5").value;
+          var coders = /^\+[0-9]/;
+          var phone= document.getElementById("t6").value;
+          var numbers = /^[0-9]/;
+          var pasword= document.getElementById("t7").value;
+          var pwd = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
+        
+          if (name == "") {
+           document.getElementById("t11").innerHTML = "Please enter your First Name";
+            return false;
+          }
+          if (!letters.test(name)) {
+           document.getElementById("t11").innerHTML = "please enter text";
+            return false;
+          }
+          else{
+            document.getElementById("t11").innerHTML = "";
+          }
+          if (last == "") {
+           document.getElementById("t22").innerHTML = "Please enter your Last Name";
+            return false;
+          }
+          if (!letters.test(last)) {
+           document.getElementById("t22").innerHTML = "please enter text";
+            return false;
+          }
+          else{
+            document.getElementById("t22").innerHTML = "";
+          }
+          if (email == "") {
+           document.getElementById("t33").innerHTML = "Please enter your Your Email ID";
+            return false;
+          }
+        
+          if (!filter.test(email)) {
+           document.getElementById("t33").innerHTML = "Invalid email";
+            return false;
+          }
+          else{
+            document.getElementById("t33").innerHTML = "";
+          }
+          if (country == "") {
+           document.getElementById("t44").innerHTML = "Please enter your Country name";
+            return false;
+          }
+          if (!letters.test(country)) {
+           document.getElementById("t44").innerHTML = "please enter text";
+            return false;
+          }
+          else{
+            document.getElementById("t44").innerHTML = "";
+          }
+          if (code == "") {
+           document.getElementById("t55").innerHTML = "Please enter Code";
+            return false;
+          }
+          if (!coders.test(code)) {
+           document.getElementById("t55").innerHTML = "please enter + and Number";
+            return false;
+          }
+          else{
+            document.getElementById("t55").innerHTML = "";
+          }
+          if (phone == "") {
+           document.getElementById("t66").innerHTML = "Please enter your phone number";
+            return false;
+          }
+          if (!numbers.test(phone)) {
+           document.getElementById("t66").innerHTML = "please enter Number";
+            return false;
+          }
+          else{
+            document.getElementById("t66").innerHTML = "";
+          }
+          if (pasword == "") {
+            
+            document.getElementById("t77").innerHTML = "Please enter your pasword";
+            return false;
+          }
+          if (!pwd.test(pasword)) {
+           document.getElementById("t77").innerHTML = "Invalid Pasword";
+            return false;
+          }
+          
+        }
+        </script>
+</body>
+</html>
